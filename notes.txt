@@ -1,0 +1,86 @@
+
+Kommentar:
+- Vi avser fokusera på följande projekt helt till mål,
+där efter kan vi ta vid och fortsätta med valueguard.
+- Vid leverans av mstat data och med ytterst lite tid kan vi direkt avgöra om projektet går att genomföra
+med rimlig kvalitet.
+- 1. förhandla timlön
+- 2. approx med tid --> klumpsumma
+- 3. Om vi klarar av det --> klumpsumman
+
+Project 1: Booli vs mstat
+
+1. Anpassa/bygga API för att tanka ner all data från Booli
+
+2. Utforska möjligheten att matcha 1-1 med booli & mstat (*mest tidkrävnade)
+  2.1 behöver mstat data (så många variabler som möjligt för eventuell matchning i de fall adress inte duger)
+  2.2 Städa variabler för merge för båda dataseten (Booli och mstat)
+    - Cleaning kan göras systematiskt och vi delar med oss all kod för framtida användning. Metoder/tools:
+      - Regular expressions
+
+3. Deskriptiv statistik över:
+  3.1 Värden:
+    - Priser
+    - Andra variabler (tidpunkter, typ av objekt, etc.)
+  3.2 Omfång
+    - Vilka områden täcker booli?
+    - Hur varierar det över olika regioner?
+
+4. Analys av boolis datakällor:
+  - Vilka mäklarfirmor blir spindlade mest/minst?
+  - Insikter för mäklarfirmorna att skydda sig från spindlingen?
+
+5. Övrig analys
+  - Insikter som uppkommer längs processen
+  - Utrymme för projektutvidgning
+
+6. Slutprodukt
+  - All kod & scripts
+  - Rapporter:
+    - Executive summary (PDF)
+    - Utförligare rapport (PDF)
+    - Presentation (PDF/PowerPoint)
+
+
+
+
+
+
+
+
+
+Notes:
+
+Möte med Hans  2018-10-12
+- Varför divergerar det mstat & valueguard?
+
+Fastighetsmäklarförbunden (vd)
+mäklarsamfundet (vd)
+fastighetsbhyråns (vd)
+svensk fastighetsförmedling (vd)
+
+4 suppleanter:
+Hans + PA
+
+
+För dyrt att sälja försärkingar (valueguard)
+
+FÖrsta spåret: Hitta arguement varför Mstat är bättre ämn ValueGUard (kan ej göra upp valuaguard)
+
+Booli har köpts av SPAB: Spindlar
+
+Tanke: använd exakt samma data och kopiera ValueGuard från mstat --> vad är exakt samma avkastning på de två olika?
+
+
+Gå via shof och koppla ihop allt det hära: vi get access till datan
+
+
+Mäklarstatistik lär alltid tänka på mäklarnyttan
+
+
+- Varför divergerar det mstat & valueguard?
+
+- Valueguard allt uppdatteras
+
+
+Faktuera via bolag

@@ -25,7 +25,7 @@ callerId = "22690student"
 # Create empty list to store reqests
 data_frame=[]
 
-with open('kommuner.txt', 'r', encoding='utf-8') as f: #open file with input strings (Swedish municipalities)
+with open('original_data\kommuner.txt', 'r', encoding='utf-8') as f: #open file with input strings (Swedish municipalities)
     lines = iter(f)
 
     for stad in lines:
@@ -33,8 +33,8 @@ with open('kommuner.txt', 'r', encoding='utf-8') as f: #open file with input str
 #generating unique hash string for each request
         for step in offset:
             timestamp = str(int(time.time()))
-            unique = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(16)) 
-            hashstr = sha1(callerId.encode('utf-8')+timestamp.encode('utf-8')+key.encode('utf-8')+unique.encode('utf-8')).hexdigest() 
+            unique = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(16))
+            hashstr = sha1(callerId.encode('utf-8')+timestamp.encode('utf-8')+key.encode('utf-8')+unique.encode('utf-8')).hexdigest()
             auth = {'callerId': callerId, 'time': timestamp, 'unique': unique, 'hash': hashstr}
 #make request
             batch = requests.get('http://api.booli.se/sold?q='+stad+'&limit=500&offset=%d'%step, params = auth).json()
@@ -42,14 +42,14 @@ with open('kommuner.txt', 'r', encoding='utf-8') as f: #open file with input str
             print(batch['count'], stad, end = '')
             if batch['count'] == 0:
                 data_frame.append(batch['sold']) #if number of hits for current offset is 0, start next iteration
-                break           
+                break
 
 
 list_of_pandas = [] #create empty list
-range_of_frame = range(0,len(data_frame),1) 
-for i in range_of_frame: 
+range_of_frame = range(0,len(data_frame),1)
+for i in range_of_frame:
     list_of_pandas.append(pd.io.json.json_normalize(data_frame[i])) #flatten each JSON request to panda format
 
 df_out = pd.concat(list_of_pandas) #merge all panda-lists to one frame
 
-df_out.to_csv('booli_out.csv', sep='\t', encoding='utf-8') #export retrieved booli data to csv
+df_out.to_csv('original_data\data_booli_out.csv', sep='\t', encoding='utf-8') #export retrieved booli data to csv
